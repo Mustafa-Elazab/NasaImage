@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".cycles.home_cycle.fragment.detail.DetailFragment">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnBack"
+            style="?attr/materialCardViewFilledStyle"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_arrow_back" />
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/model_title_tv"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@id/btnBack"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="@id/btnBack"
+            tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/model_thumbnail_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack"
+            tools:srcCompat="@drawable/ic_launcher_background" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/model_date_tv"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="@+id/model_thumbnail_img"
+            app:layout_constraintTop_toBottomOf="@+id/model_thumbnail_img"
+            tools:text="2018-01-31T00:00:00Z" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/model_id_tv"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="@+id/model_thumbnail_img"
+            app:layout_constraintTop_toBottomOf="@+id/model_date_tv"
+            tools:text="NHQ_2018_0131_Super Blue Moon Lunar Eclipse" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/model_desc_tv"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:ellipsize="end"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@+id/model_thumbnail_img"
+            app:layout_constraintTop_toBottomOf="@+id/model_id_tv"
+            tools:text="NASA TV provided coverage of Super Blue Moon Lunar Eclipse on Jan. 31. The full moon was the third in a series of “supermoons,” when the Moon is closer to Earth in its orbit -- known as perigee -- and about 14 percent brighter than usual. It was also the second full moon of the month, commonly known as a “blue moon.” As the super blue moon passed through Earth’s shadow, viewers in some locations experienced a total lunar eclipse. While in Earth’s shadow, the moon also took on a reddish tint – which is sometimes referred to as a “blood moon" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
