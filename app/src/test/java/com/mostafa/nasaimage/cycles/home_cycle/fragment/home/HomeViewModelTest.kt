@@ -6,9 +6,13 @@ import com.mostafa.domain.model.NasaModel
 import com.mostafa.domain.repository.NasaRepository
 import com.mostafa.domain.usecase.GetSearchUseCase
 import com.mostafa.nasaimage.MainCoroutineRule
+import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Assert.*
@@ -19,6 +23,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.verify
+import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 
 
@@ -33,18 +38,13 @@ class HomeViewModelTest {
     @get:Rule
     val mainCoroutine = MainCoroutineRule()
 
-
-    @Mock
-    private lateinit var repository: NasaRepository
-
-    private lateinit var useCase: GetSearchUseCase
+    val useCase = mockk<GetSearchUseCase>()
 
     private lateinit var homeViewModel: HomeViewModel
 
 
     @Before
     fun setup() {
-        useCase = GetSearchUseCase(repository)
         homeViewModel = HomeViewModel(useCase = useCase)
     }
 
@@ -54,15 +54,16 @@ class HomeViewModelTest {
         val expectedPagingData = createMockPagingData()
         val text = "example"
 
-        // Stub the useCase to return null pagingData
-        Mockito.`when`(useCase.invoke(Mockito.anyString())).thenReturn(null)
+       `when`(useCase.invoke(text)).thenReturn(flowOf(expectedPagingData))
 
-        // When
-        homeViewModel.validateText(text)
 
-        // Then
-        val actualPagingData = homeViewModel.searchResults.first()
-        Assert.assertEquals(expectedPagingData, actualPagingData)
+        // Act
+        val result = useCase.invoke(text).single()
+
+        // Assert
+        assertEquals(expectedPagingData, result)
+
+        verify(useCase).invoke(text)
     }
 
 

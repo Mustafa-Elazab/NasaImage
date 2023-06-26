@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".HiltTestActivity"
+            android:name="nasaimage.HiltTestActivity"
             android:exported="false">
         </activity>
     </application>

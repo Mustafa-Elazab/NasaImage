@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentFactory
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import nasaimage.HiltTestActivity
 
 
 @ExperimentalCoroutinesApi
